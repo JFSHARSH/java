@@ -1,0 +1,46 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class InsufficientBalanceException extends Exception{
+    InsufficientBalanceException(String msg)
+   {
+       super(msg);
+   }
+}
+class IllegalBankTransactionException extends Exception{
+    IllegalBankTransactionException(String msg)
+    {
+        super(msg);
+    }
+
+}
+class Main {
+
+    public static void main(String[] args) {
+    int bal,with;
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the balance ");
+        bal=s.nextInt();
+        System.out.println("Enter the withdraw amount");
+        with=s.nextInt();
+        try
+        {
+        if(bal<with)
+        {
+            throw new InsufficientBalanceException("msg");
+        }
+        }
+        catch(InsufficientBalanceException e)
+        {
+            e.printStackTrace();
+        }
+        try {
+            if (bal<0)
+            {
+                throw new IllegalBankTransactionException("msg");
+            }
+        }
+        catch(IllegalBankTransactionException e)
+        {   e.printStackTrace();
+}}}
